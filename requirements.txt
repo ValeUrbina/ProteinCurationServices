@@ -1,0 +1,5 @@
+biopython==1.78
+fastapi==0.65.1
+pandas
+numpy
+uvicorn[standard]
