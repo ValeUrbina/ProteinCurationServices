@@ -1,4 +1,4 @@
 dir=$1
 
 cd /home/pfam/pfam_data/$dir
-nextDUF
+nextDUF > nextDUF.txt

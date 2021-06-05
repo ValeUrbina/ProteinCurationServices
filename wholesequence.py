@@ -17,14 +17,12 @@ def main(directory, pfam_code, seed):
     os.system(my_cmd)
     # Se cambia al formato FASTA
     align_path = os.path.join(
-        PATH, 'pfam_data', directory, pfam_code, 'wholeSEED')
+        PATH, 'pfam_data', directory, pfam_code, 'wholeALIGN')
     fasta_path = os.path.join(
-        PATH, 'pfam_data', directory, pfam_code, 'wholeSEED.fasta')
+        PATH, 'pfam_data', directory, pfam_code, 'wholeALIGN.fasta')
     to_fasta.main(align_path, fasta_path)
     # Se retorna la ruta del archivo
-    if os.path.exists(fasta_path):
-        return fasta_path
-    return {"error": "There's no such wholeSEED.fasta file"}
+    return fasta_path
 
 
 if __name__ == "__main__":

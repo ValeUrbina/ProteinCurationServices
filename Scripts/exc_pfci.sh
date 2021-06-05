@@ -1,6 +1,7 @@
 dir=$1
-pfam=$2
-descripcion=$3
+options=$2
+pfam=$3
+descripcion=$4
 
 cd /home/pfam/pfam_data/$dir
-pfci -onlydesc $pfam -i -m $descripcion
+pfci $options $pfam -i -m $descripcion
