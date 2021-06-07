@@ -11,12 +11,6 @@ PATH = '/home/valeria/Documentos/Tesis_2/Docker/pfam_curation/'
 
 
 def main(directory, pfam_code):
-    # se crea la carpeta si no existe
-    try:
-        os.mkdir(os.path.join(PATH, 'pfam_data', directory))
-    except:
-        pass
-
     # Nos dirigimos a la carpeta donde se levantará el docker
     os.chdir(PATH)
     # Se ejecuta pfco

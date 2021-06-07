@@ -1,0 +1,20 @@
+[ReUPred variables]
+#directory for source files
+DBfolder = output
+SRULdir = SRUL/
+templateList= templateList
+AlignFolder = Align
+reportFile = Report
+tempFolder = temp
+finalUnits = units
+musdir = musdir
+pdbDesc = pdbDesc
+pdbFolderDB=/home/layla/pdb/
+pdbFolderDBlocal=/home/layla/pdb/
+#TMalignexe =/software/packages/tmalign/TMtools20170708/TMalign
+#Mustangexe =/software/packages/mustang/MUSTANG_v3.2.2/bin/mustang-3.2.2
+#Dsspexe =/software/packages/dssp/dssp-2.0.4/dssp
+TMalignexe =/usr/bin/TMalign
+Mustangexe =/usr/bin/mustang
+Dsspexe =/usr/bin/dssp
+

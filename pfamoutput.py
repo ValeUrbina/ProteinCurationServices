@@ -34,6 +34,7 @@ def main(directory, pfam_code, evalue):
     for i, line in enumerate(lines[i_domain + 7:]):
         domains = domains + line
 
+    output_file.close()
     return {"cutoffvalues": cutoffvalues, "sequences": sequences, "domains": domains}
 
 

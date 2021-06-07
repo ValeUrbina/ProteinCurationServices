@@ -1,7 +1,7 @@
 import sys
 import os
 
-# Convert file format from fast to stockholm
+# Convert file format from fast to PFAM CURATIONS format
 
 
 def fasta_to_stockholm(source_fasta_alignment_path, target_stockholm_alignment_path):

@@ -1,0 +1,60 @@
+
+module load python/2.7.11
+module load tmalign/20170708
+module load dssp
+module load mustang
+
+
+python reupred.py -i 3vsf -d /home/layla/Predictor2/pid_2 -q all
+
+python reupred.py reupred.py -d <working path> -i <targetname> -c <chain> -q <all/first/chain> -e <True/False>
+
+Samples:
+No files:
+     first chain
+    python reupred.py -i 3vsf -d /home/layla/Predictor2/pid_2/ -c - -q first -e False -s /home/layla/PycharmProjects/Server/ -v False
+    Chain
+    python reupred.py -i 4drx -d /home/layla/Predictor2/pid_3/ -c E -q chain -e False -s /home/layla/PycharmProjects/Server/ -v False
+    All
+    python reupred.py -i 3vsf -d /home/layla/Predictor2/pid_4/ -c - -q all -e False -s /home/layla/PycharmProjects/Server/ -v False
+
+with the file by name pdb3vsf.ent  with extension (pdb3vsf.ent)
+    first chain
+    python reupred.py -i pdb3vsf.ent -d /home/layla/Predictor2/pid_5/ -c - -q first -e True -s /home/layla/PycharmProjects/Server/ -v False
+    Chain
+    python reupred.py -i pdb3vsf.ent -d /home/layla/Predictor2/pid_6/ -c A -q chain -e True -s /home/layla/PycharmProjects/Server/ -v False
+    All
+    python reupred.py -i pdb3vsf.ent -d /home/layla/Predictor2/pid_7/ -c - -q all -e True -s /home/layla/PycharmProjects/Server/ -v False
+
+with the file by user name pdb3vsf
+    first chain
+    python reupred.py -i pdb3vsf -d /home/layla/Predictor2/pid_8/ -c - -q first -e True -s /home/layla/PycharmProjects/Server/ -v False
+    Chain
+    python reupred.py -i pdb3vsf -d /home/layla/Predictor2/pid_9/ -c A -q chain -e True -s /home/layla/PycharmProjects/Server/ -v False
+    All
+    python reupred.py -i pdb3vsf -d /home/layla/Predictor2/pid_10/ -c - -q all -e True -s /home/layla/PycharmProjects/Server/ -v False
+
+
+Validation
+    -i 4drx -d /home/layla/Predictor2/pid_3/ -c E -q chain -e False -s /home/layla/PycharmProjects/Server/ -v True
+
+
+    3vsf two regions class IV ok
+    4drx class III   ok
+    1lvaA class V 3  ok
+    2n3vA III 3  ok
+    1q3g G IV 5 ok
+    2vqiB  IV2  ??
+    4rl8D  IV2 ok
+    3ec5A III 5 ok
+    2bmlA III 4 ok
+    5an9I IV7  ok
+    5bn6F IV 10  ok
+    1bcw A
+    2qmrA
+    1xqrB
+
+
+Fast examples for the web
+
+    5an9I IV7  ok

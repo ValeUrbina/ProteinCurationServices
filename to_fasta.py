@@ -4,7 +4,7 @@ import pandas as pd
 import numpy as np
 import json
 
-# df_codes = pd.read_csv(dir_path+"/pdb_unprot_pfam_reviewed_alfasolenoids.csv")
+# Convert file format from fast to FASTA format
 
 
 def stockholm_to_fasta(source_stockholm_alignment_path, target_fasta_alignment_path):
@@ -16,11 +16,11 @@ def stockholm_to_fasta(source_stockholm_alignment_path, target_fasta_alignment_p
     for i, line in enumerate(stockholm_lines):
         if i > 0:
             target_fasta_alignment_file.write('\n')
-        intro = line[:22].strip()
+        intro = line.split()[0].strip()
         if len(intro) == 0:
             continue
         intro = '>' + intro
-        seq = line[22:].strip()
+        seq = line.split()[1].strip()
         target_fasta_alignment_file.write(intro + '\n' + seq)
     source_stockholm_alignment_file.close()
     target_fasta_alignment_file.close()

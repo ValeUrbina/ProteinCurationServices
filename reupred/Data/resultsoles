@@ -1,0 +1,64 @@
+
+[0;37;1;41m      MUSTANG (v3.2.2): A MUltiple STuructural AligNment alGorithm.        [0;0m
+[1;33;4;1;46m Authors:     [0;1;37;4;1;46m    A S Konagurthu,  J Whisstock, and P J Stuckey, A M Lesk. [0m
+[0;33;4;1;46m Reference:   [0;37;4;1;46m    A S Konagurthu et al. Proteins 64(3):559-574, 2006       [0m
+[0m
+
+Parsing the PDB file: [35mRepeat_13_44_reg.pdb[0m  (...contains [1m  32[0m residues.)  [ [32;4mOK[0m ]
+Parsing the PDB file: [35mRepeat_45_77_reg.pdb[0m  (...contains [1m  33[0m residues.)  [ [32;4mOK[0m ]
+Parsing the PDB file: [35mRepeat_78_108_reg.pdb[0m  (...contains [1m  31[0m residues.)  [ [32;4mOK[0m ]
+Parsing the PDB file: [35mRepeat_109_141_reg.pdb[0m  (...contains [1m  33[0m residues.)  [ [32;4mOK[0m ]
+Parsing the PDB file: [35mRepeat_142_168_reg.pdb[0m  (...contains [1m  27[0m residues.)  [ [32;4mOK[0m ]
+Calculating Distance Matrices...                                     [ [32;4mOK[0m ]
+Pairwise Comparisons:        1 of   10   2 of   10   3 of   10   4 of   10   5 of   10   6 of   10   7 of   10   8 of   10   9 of   10  10 of   10                                           [ [32;4mOK[0m ]
+Extending Edge-Weights thro' intermediate structures...              [ [32;4mOK[0m ]
+Final Alignment using the extended weights...                        [ [32;4mOK[0m ]
+Superposing structures on the core: 
+ (...writing [31;1m/home/layla/Predictor2/pid_1/Temporary/tempIII4drxE/tryMus.mustang.pdb[0m) [ [32;4mOK[0m ]
+Writing rotation matrices and RMSDs:(...writing [31;1m/home/layla/Predictor2/pid_1/Temporary/tempIII4drxE/tryMus.mustang.rms_rot[0m) [ [32;4mOK[0m ]
+Output alignment in fasta: 
+ (...writing [31;1m/home/layla/Predictor2/pid_1/Temporary/tempIII4drxE/tryMus.mustang.afasta[0m) [ [32;4mOK[0m ]
+
+All Done! Thank you for using [1mMUSTANG[0m.
+Running Time : 0.09  s.
+
+[0;37;1;41m      MUSTANG (v3.2.2): A MUltiple STuructural AligNment alGorithm.        [0;0m
+[1;33;4;1;46m Authors:     [0;1;37;4;1;46m    A S Konagurthu,  J Whisstock, and P J Stuckey, A M Lesk. [0m
+[0;33;4;1;46m Reference:   [0;37;4;1;46m    A S Konagurthu et al. Proteins 64(3):559-574, 2006       [0m
+[0m
+
+Parsing the PDB file: [35m4drx_E_13_44_reg1.pdb[0m  (...contains [1m  32[0m residues.)  [ [32;4mOK[0m ]
+Parsing the PDB file: [35m4drx_E_45_77_reg1.pdb[0m  (...contains [1m  33[0m residues.)  [ [32;4mOK[0m ]
+Parsing the PDB file: [35m4drx_E_78_108_reg1.pdb[0m  (...contains [1m  31[0m residues.)  [ [32;4mOK[0m ]
+Parsing the PDB file: [35m4drx_E_109_141_reg1.pdb[0m  (...contains [1m  33[0m residues.)  [ [32;4mOK[0m ]
+Parsing the PDB file: [35m4drx_E_142_168_reg1.pdb[0m  (...contains [1m  27[0m residues.)  [ [32;4mOK[0m ]
+Calculating Distance Matrices...                                     [ [32;4mOK[0m ]
+Pairwise Comparisons:        1 of   10   2 of   10   3 of   10   4 of   10   5 of   10   6 of   10   7 of   10   8 of   10   9 of   10  10 of   10                                           [ [32;4mOK[0m ]
+Extending Edge-Weights thro' intermediate structures...              [ [32;4mOK[0m ]
+Final Alignment using the extended weights...                        [ [32;4mOK[0m ]
+Superposing structures on the core: 
+ (...writing [31;1m/home/layla/Predictor2/pid_1/_E/Region1/4drx_Eregion1.mustang.pdb[0m) [ [32;4mOK[0m ]
+Writing rotation matrices and RMSDs:(...writing [31;1m/home/layla/Predictor2/pid_1/_E/Region1/4drx_Eregion1.mustang.rms_rot[0m) [ [32;4mOK[0m ]
+Output alignment in fasta: 
+ (...writing [31;1m/home/layla/Predictor2/pid_1/_E/Region1/4drx_Eregion1.mustang.afasta[0m) [ [32;4mOK[0m ]
+
+All Done! Thank you for using [1mMUSTANG[0m.
+Running Time : 0.10  s.
+calling  4drx /home/layla/Predictor2/pid_1/ False chain E
+{'structure_method': 'x-ray diffraction', 'head': 'cell cycle', 'journal': 'AUTH   L.PECQUEUR,C.DUELLBERG,B.DREIER,Q.JIANG,C.WANG,A.PLUCKTHUN,AUTH 2 T.SURREY,B.GIGANT,M.KNOSSOWTITL   A DESIGNED ANKYRIN REPEAT PROTEIN SELECTED TO BIND TOTITL 2 TUBULIN CAPS THE MICROTUBULE PLUS END.REF    PROC.NATL.ACAD.SCI.USA        V. 109 12011 2012REFN                   ISSN 0027-8424PMID   22778434DOI    10.1073/PNAS.1204129109', 'journal_reference': 'l.pecqueur,c.duellberg,b.dreier,q.jiang,c.wang,a.pluct.surrey,b.gigant,m.knossow a designed ankyrin repeat protein selected to bind totubulin caps the microtubule plus end. proc.natl.acad.sci.usa v. 109 12011 2012 issn 0027-8424 22778434 10.1073/pnas.1204129109 ', 'compound': {'1': {'fragment': 'unp residues 1-437', 'molecule': 'tubulin alpha chain', 'misc': '', 'chain': 'a, c'}, '3': {'molecule': 'designed ankyrin repeat protein (darpin) d1', 'misc': '', 'engineered': 'yes', 'chain': 'e, f'}, '2': {'fragment': 'unp residues 1-431', 'molecule': 'tubulin beta chain', 'misc': '', 'chain': 'b, d'}}, 'keywords': 'alpha-tubulin, beta-tubulin, gtpase, microtubule, darpin, subtilisin, tubulin, tubulin digested with subtilisin, cell cycle', 'name': ' gtp-tubulin in complex with a darpin', 'author': 'L.Pecqueur,B.Gigant,M.Knossow', 'deposition_date': '2012-02-17', 'release_date': '2012-07-11', 'chain A': 'non requested', 'source': {'1': {'organism_common': 'domestic sheep,lambs,wild sheep', 'misc': '', 'organism_taxid': '9940', 'organism_scientific': 'ovis aries'}, '3': {'expression_system_vector_type': 'plasmid', 'expression_system': 'escherichia coli', 'expression_system_taxid': '562', 'organism_scientific': 'artificial gene', 'misc': '', 'expression_system_plasmid': 'pdst067 (pqe30 derivative)', 'expression_system_strain': 'xliblue', 'organism_taxid': '32630'}, '2': {'organism_common': 'domestic sheep,lambs,wild sheep', 'misc': '', 'organism_taxid': '9940', 'organism_scientific': 'ovis aries'}}, 'chain D': 'non requested', 'chain E': 'non requested', 'chain F': 'non requested', 'resolution': 2.22, 'structure_reference': [], 'chain B': 'non requested', 'chain C': 'non requested'}
+4drxE
+ERROR
+ERROR
+ERROR
+ERROR
+ERROR
+ERROR
+Start	End
+
+13 	44
+45 	77
+78 	108
+109 	141
+142 	168
+Selected template 3f6qA
+insertions  

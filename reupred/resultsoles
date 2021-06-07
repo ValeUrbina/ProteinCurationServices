@@ -1,0 +1,73 @@
+
+[0;37;1;41m      MUSTANG (v3.2.3): A MUltiple STuructural AligNment alGorithm.        [0;0m
+[1;33;4;1;46m Authors:     [0;1;37;4;1;46m    A S Konagurthu,  J Whisstock, and P J Stuckey, A M Lesk. [0m
+[0;33;4;1;46m Reference:   [0;37;4;1;46m    A S Konagurthu et al. Proteins 64(3):559-574, 2006       [0m
+[0m
+
+Parsing the PDB file: [35mRepeat_36_69_reg.pdb[0m  (...contains [1m  32[0m residues.)  [ [32;4mOK[0m ]
+Parsing the PDB file: [35mRepeat_70_103_reg.pdb[0m  (...contains [1m  33[0m residues.)  [ [32;4mOK[0m ]
+Parsing the PDB file: [35mRepeat_104_136_reg.pdb[0m  (...contains [1m  32[0m residues.)  [ [32;4mOK[0m ]
+Calculating Distance Matrices...                                     [ [32;4mOK[0m ]
+Pairwise Comparisons:        1 of    3   2 of    3   3 of    3                                           [ [32;4mOK[0m ]
+Extending Edge-Weights thro' intermediate structures...              [ [32;4mOK[0m ]
+Final Alignment using the extended weights...                        [ [32;4mOK[0m ]
+Superposing structures on the core: 
+ (...writing [31;1m/home/layla/Predictor2/pid_3/Temporary/tempIII2vgyA/tryMus.mustang.pdb[0m) [ [32;4mOK[0m ]
+Writing rotation matrices and RMSDs:(...writing [31;1m/home/layla/Predictor2/pid_3/Temporary/tempIII2vgyA/tryMus.mustang.rms_rot[0m) [ [32;4mOK[0m ]
+Output alignment in fasta: 
+ (...writing [31;1m/home/layla/Predictor2/pid_3/Temporary/tempIII2vgyA/tryMus.mustang.afasta[0m) [ [32;4mOK[0m ]
+
+All Done! Thank you for using [1mMUSTANG[0m.
+Running Time : 0.07  s.
+[36;4m.                                -=o0o=-                                  .[0m
+[36;3m|  Visit [0m[33;3mhttp://lcb.infotech.monash.edu.au[0m[36;3m for other supporting programs  |[0m
+[34;3m|            Some suggested utilities for you to try out:                 |
+[33;3m| SST[0m[36;3m: A Bayesian approach to assigning secondary structures.             [0m[33;3m|[0m
+[33;3m| MMLigner[0m[36;3m: Pairwise structural alignment using information & compression.[0m[33;3m|[0m
+[33;3m| Super[0m[36;3m: Rapidly screen entire PDB for well-superposable fragments.       [0m[33;3m|[0m
+[36;4m.                                -=o0o=-                                  .[0m
+
+[0;37;1;41m      MUSTANG (v3.2.3): A MUltiple STuructural AligNment alGorithm.        [0;0m
+[1;33;4;1;46m Authors:     [0;1;37;4;1;46m    A S Konagurthu,  J Whisstock, and P J Stuckey, A M Lesk. [0m
+[0;33;4;1;46m Reference:   [0;37;4;1;46m    A S Konagurthu et al. Proteins 64(3):559-574, 2006       [0m
+[0m
+
+
+[0;37;1;41m      MUSTANG (v3.2.3): A MUltiple STuructural AligNment alGorithm.        [0;0m
+[1;33;4;1;46m Authors:     [0;1;37;4;1;46m    A S Konagurthu,  J Whisstock, and P J Stuckey, A M Lesk. [0m
+[0;33;4;1;46m Reference:   [0;37;4;1;46m    A S Konagurthu et al. Proteins 64(3):559-574, 2006       [0m
+[0m
+
+Parsing the PDB file: [35m2vgy_A_36_69_reg1.pdb[0m  (...contains [1m  32[0m residues.)  [ [32;4mOK[0m ]
+Parsing the PDB file: [35m2vgy_A_70_103_reg1.pdb[0m  (...contains [1m  33[0m residues.)  [ [32;4mOK[0m ]
+Parsing the PDB file: [35m2vgy_A_104_136_reg1.pdb[0m  (...contains [1m  32[0m residues.)  [ [32;4mOK[0m ]
+Parsing the PDB file: [35m2vgy_A_138_160_reg1.pdb[0m  (...contains [1m  19[0m residues.)  [ [32;4mOK[0m ]
+Calculating Distance Matrices...                                     [ [32;4mOK[0m ]
+Pairwise Comparisons:        1 of    6   2 of    6   3 of    6   4 of    6   5 of    6   6 of    6                                           [ [32;4mOK[0m ]
+Extending Edge-Weights thro' intermediate structures...              [ [32;4mOK[0m ]
+Final Alignment using the extended weights...                        [ [32;4mOK[0m ]
+Superposing structures on the core: 
+ (...writing [31;1m/home/layla/Predictor2/pid_3/_A/Region1/2vgy_Aregion1.mustang.pdb[0m) [ [32;4mOK[0m ]
+Writing rotation matrices and RMSDs:(...writing [31;1m/home/layla/Predictor2/pid_3/_A/Region1/2vgy_Aregion1.mustang.rms_rot[0m) [ [32;4mOK[0m ]
+Output alignment in fasta: 
+ (...writing [31;1m/home/layla/Predictor2/pid_3/_A/Region1/2vgy_Aregion1.mustang.afasta[0m) [ [32;4mOK[0m ]
+
+All Done! Thank you for using [1mMUSTANG[0m.
+Running Time : 0.08  s.
+[36;4m.                                -=o0o=-                                  .[0m
+[36;3m|  Visit [0m[33;3mhttp://lcb.infotech.monash.edu.au[0m[36;3m for other supporting programs  |[0m
+[34;3m|            Some suggested utilities for you to try out:                 |
+[33;3m| SST[0m[36;3m: A Bayesian approach to assigning secondary structures.             [0m[33;3m|[0m
+[33;3m| MMLigner[0m[36;3m: Pairwise structural alignment using information & compression.[0m[33;3m|[0m
+[33;3m| Super[0m[36;3m: Rapidly screen entire PDB for well-superposable fragments.       [0m[33;3m|[0m
+[36;4m.                                -=o0o=-                                  .[0m
+2vgyA
+[['3cvlA_534_567_reg1', 0.9, 39, 73, 0.0294117647059, 0.0, 0, 33, 0, 0.43, 39, 0.985074626866], ['2fi7B_137_173_reg1', 0.81, 35, 73, 0.0263157894737, 0.0263157894737, 0, 36, 0, 1.47, 35, 0.972972972973], ['2pl2A_62_93_reg1', 0.79, 6, 38, 0.0625, 0.0, 0, 30, 0, 0.63, 6, 0.967741935484], ['3q75A_56_90_reg1', 0.77, 22, 59, 0.027027027027, 0.0540540540541, 0, 34, 0, 1.24, 22, 0.957746478873], ['2db0A_212_247_reg1', 0.67, 85, 126, 0.0975609756098, 0.121951219512, 0, 32, 1, 1.58, 85, 0.876712328767], ['1u6gC_966_998_reg1', 0.56, 90, 127, 0.108108108108, 0.108108108108, 0, 29, 1, 1.64, 90, 0.878787878788], ['1szaA_2_36_reg1', 0.54, 54, 90, 0.138888888889, 0.0277777777778, 0, 30, 0, 1.55, 54, 0.909090909091], ['3u4tA_230_260_reg1', 0.7, 28, 72, 0.0, 0.295454545455, 0, 31, 0, 1.63, 28, 0.826666666667], ['3q75A_303_333_reg1', 0.65, 69, 106, 0.135135135135, 0.162162162162, 0, 26, 0, 1.36, 69, 0.825396825397], ['3rk6A_260_294_reg1', 0.58, 1, 38, 0.0810810810811, 0.0540540540541, 0, 32, 1, 2.29, 1, 0.927536231884], ['3ltjA_171_201_reg1', 0.51, 65, 104, 0.0769230769231, 0.205128205128, 0, 28, 0, 2.12, 65, 0.835820895522], ['3lvgB_1136_1170_reg1', 0.46, 76, 113, 0.0810810810811, 0.0540540540541, 0, 32, 0, 2.07, 76, 0.927536231884]]
+Start	End
+
+36 	69
+70 	103
+104 	136
+138 	160
+Selected template 3cvlA
+mustang info ['>2vgy_A_36_69_reg1.pdb', '--LEQLYSLAFNQYQSGY-EDA--H-VFQALCVLD--HYD', '', '>2vgy_A_70_103_reg1.pdb', '--SRFFLGLGACRQAMGQYDLA-IH-SYEEGAVMD--IE-', '', '>2vgy_A_104_136_reg1.pdb', '--PRFPFHAAECLLQGEL-AEA--ESGLFLAQELI--AN-', '', '>2vgy_A_138_160_reg1.pdb', 'PE---------------F-ELST-R-VSSMLEAILEM---', '']
