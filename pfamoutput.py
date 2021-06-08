@@ -4,10 +4,8 @@ import os
 # return pfamout file in specific segments
 # this file should be located in the directory specified by pfam_curation_tools docker
 
-PATH = '/home/valeria/Documentos/Tesis_2/Docker/pfam_curation/'
 
-
-def main(directory, pfam_code, evalue):
+def main(PATH, directory, pfam_code, evalue):
     # Nos dirigimos a la carpeta donde se encuentra el archivo
     output_path = os.path.join(
         PATH, 'pfam_data', directory, pfam_code, 'PFAMOUT')

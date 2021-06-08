@@ -4,6 +4,7 @@ from pydantic import BaseModel
 from spcleaner.alignment_curator import main as spcleaner
 import os
 import to_fasta
+import sendemail
 import newproject
 import pfco
 import wholesequence
@@ -24,6 +25,7 @@ import hmmer
 
 app = FastAPI()
 base = '/home/valeria/Documentos/Tesis_2/Docker/pfam_curation/'
+pfamseq_path = '/home/valeria/Documentos/Tesis_2/Docker/pfam_curation/seqlib/pfamseq'
 
 
 class Protein(BaseModel):
@@ -43,9 +45,19 @@ def returnfile(project_name: str, pfam_code: str, file_name: str):
 
 
 # Para descargar una familia de proteínas con pfco
+@app.get("/sendemail/")
+def sendemail_service(project_name: str, operation_id: str, receiver_mail: str, pfam_code: str):
+    file_path = os.path.join(
+        base, 'pfam_data', project_name, pfam_code, 'SEED')
+    resault = newproject.main(
+        base, operation_id, receiver_mail, file_path, pfam_code)
+    return resault
+
+
+# Para crear un nuevo proyecto
 @app.get("/newproject/")
 def newproject_service(curator_id: str, project_name: str, email: str, pfam_code: str):
-    resault = newproject.main(curator_id, project_name, email, pfam_code)
+    resault = newproject.main(base, curator_id, project_name, email, pfam_code)
     if os.path.exists(resault["project_path"]):
         return resault["directory"]
     else:
@@ -55,7 +67,7 @@ def newproject_service(curator_id: str, project_name: str, email: str, pfam_code
 # Para descargar una familia de proteínas con pfco
 @app.get("/getalign/")
 def getalign_service(project_name: str, pf_code: str):
-    file_path = pfco.main(project_name, pf_code)
+    file_path = pfco.main(base, project_name, pf_code)
     if os.path.exists(file_path):
         return FileResponse(file_path)
     else:
@@ -65,7 +77,7 @@ def getalign_service(project_name: str, pf_code: str):
 # Para ejecutar la funcion wholeseq
 @app.get("/wholeseq/")
 def wholeseq_service(project_name: str, pf_code: str, seed: str):
-    file_path = wholesequence.main(project_name, pf_code, seed)
+    file_path = wholesequence.main(base, project_name, pf_code, seed)
     if os.path.exists(file_path):
         return FileResponse(file_path)
     else:
@@ -75,7 +87,7 @@ def wholeseq_service(project_name: str, pf_code: str, seed: str):
 # Para retornar el archivo efetch
 @app.get("/efetch/")
 def efetch_service(project_name: str, pf_code: str, accnumber: str):
-    file_path = efetch.main(project_name, pf_code, accnumber)
+    file_path = efetch.main(base, project_name, pf_code, accnumber)
     if os.path.exists(file_path):
         return FileResponse(file_path)
     else:
@@ -95,7 +107,7 @@ def desc_service(project_name: str, pf_code: str):
 # Para ejecutar la funcion createalign
 @app.get("/createalign/")
 def createalign_service(project_name: str, pf_code: str, seed: str, method: str):
-    file_path = createalign.main(project_name, pf_code, seed, method)
+    file_path = createalign.main(base, project_name, pf_code, seed, method)
     if os.path.exists(file_path):
         return FileResponse(file_path)
     else:
@@ -105,7 +117,8 @@ def createalign_service(project_name: str, pf_code: str, seed: str, method: str)
 # Para ejecutar la funcion extend
 @app.get("/extend/")
 def extend_service(project_name: str, pf_code: str, seed: str, n: str, c: str, method: str):
-    file_path = extendterminal.main(project_name, pf_code, seed, n, c, method)
+    file_path = extendterminal.main(
+        base, project_name, pf_code, seed, n, c, method)
     if os.path.exists(file_path):
         return FileResponse(file_path)
     else:
@@ -115,7 +128,7 @@ def extend_service(project_name: str, pf_code: str, seed: str, n: str, c: str, m
 # Para ejecutar la funcion pfnew: PARA PROTEÍNAS SIN FAMILIA
 @app.get("/pfnew/")
 def pfnew_service(project_name: str, accnumdir: str):
-    file_path = pfnew.main(project_name, accnumdir)
+    file_path = pfnew.main(base, project_name, accnumdir)
     if os.path.exists(file_path):
         return FileResponse(file_path)
     else:
@@ -125,7 +138,7 @@ def pfnew_service(project_name: str, accnumdir: str):
 # Para ejecutar la funcion pfbuild
 @app.get("/pfbuild/")
 def pfbuild_service(project_name: str, pf_code: str):
-    file_path = pfbuild.main(project_name, pf_code)
+    file_path = pfbuild.main(base, project_name, pf_code)
     if os.path.exists(file_path):
         return FileResponse(file_path)
     else:
@@ -135,7 +148,7 @@ def pfbuild_service(project_name: str, pf_code: str):
 # Para ejecutar la funcion pfmake
 @app.get("/pfmake/")
 def pfmake_service(project_name: str, pf_code: str, tmayus: str, tminus: str, e: str):
-    file_path = pfmake.main(project_name, pf_code, tmayus, tminus, e)
+    file_path = pfmake.main(base, project_name, pf_code, tmayus, tminus, e)
     if os.path.exists(file_path):
         return FileResponse(file_path)
     else:
@@ -145,7 +158,7 @@ def pfmake_service(project_name: str, pf_code: str, tmayus: str, tminus: str, e:
 # Para ejecutar la funcion nextduf
 @app.get("/nextduf/")
 def nextduf_service(project_name: str, pf_code: str):
-    file_path = nextduf.main(project_name, pf_code)
+    file_path = nextduf.main(base, project_name, pf_code)
     if os.path.exists(file_path):
         return FileResponse(file_path)
     else:
@@ -155,21 +168,21 @@ def nextduf_service(project_name: str, pf_code: str):
 # Para ejecutar la funcion pfci: PARA PROTEÍNAS CON FAMILIA
 @app.get("/pfci/")
 def pfci_service(project_name: str, pf_code: str, options: str, description: str):
-    answer = pfci.main(project_name, pf_code, options, description)
+    answer = pfci.main(base, project_name, pf_code, options, description)
     return answer
 
 
 # Para ejecutar la funcion missing
 @app.get("/missing/")
 def missing_service(project_name: str, pf_code: str):
-    result = missing.main(project_name, pf_code)
+    result = missing.main(base, project_name, pf_code)
     return result
 
 
 # Para ejecutar la funcion overlap
 @app.get("/overlap/")
 def overlap_service(project_name: str, pf_code: str):
-    file_path = overlap.main(project_name, pf_code)
+    file_path = overlap.main(base, project_name, pf_code)
     if os.path.exists(file_path):
         return FileResponse(file_path)
     else:
@@ -179,7 +192,7 @@ def overlap_service(project_name: str, pf_code: str):
 # Para ejecutar la funcion pfamoutput
 @app.get("/pfamoutput/")
 def pfamoutput_service(project_name: str, pf_code: str, evalue: float):
-    result = pfamoutput.main(project_name, pf_code, evalue)
+    result = pfamoutput.main(base, project_name, pf_code, evalue)
     return {"cutoffvalues": result["cutoffvalues"], "sequences": result["sequences"], "domains": result["domains"]}
 
 
@@ -214,14 +227,14 @@ def reupred_service():
 # Para repeatsdb
 @app.get("/repeatsdb/")
 def repeatsdb_service(directory: str, pfam_code: str, pdb_id: str):
-    resault = repeatsdb.main(directory, pfam_code, pdb_id)
+    resault = repeatsdb.main(base, directory, pfam_code, pdb_id)
     return resault
 
 
 # Para hmmer
 @app.get("/hmmer/")
 def hmmer_service(project_name: str, pf_code: str):
-    file_path = hmmer.main(project_name, pf_code)
+    file_path = hmmer.main(base, pfamseq_path, project_name, pf_code)
     if os.path.exists(file_path):
         return FileResponse(file_path)
     else:

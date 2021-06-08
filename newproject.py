@@ -6,10 +6,9 @@ from datetime import datetime
 # this file should be located in the directory specified by pfam_curation_tools docker
 
 SCRIPT = "mkdir /home/valeria/Documentos/Tesis_2/Docker/pfam_curation/pfam_data/{}/"
-PATH = '/home/valeria/Documentos/Tesis_2/Docker/pfam_curation/'
 
 
-def main(curator_id, project_name, email, pfam_code):
+def main(PATH, curator_id, project_name, email, pfam_code):
 
     # fisrt create the project id
     now = datetime.now()

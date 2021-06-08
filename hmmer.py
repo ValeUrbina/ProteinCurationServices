@@ -7,11 +7,9 @@ import to_fasta
 # this file should be located in the directory specified by pfam_curation_tools docker
 
 SCRIPT = "./exec_hmmersearch.sh {} {} {} {}"
-PATH = '/home/valeria/Documentos/Tesis_2/Docker/pfam_curation/'
-pfamseq_path = '/home/valeria/Documentos/Tesis_2/Docker/pfam_curation/seqlib/pfamseq'
 
 
-def main(directory, pfam_code):
+def main(PATH, pfamseq_path, directory, pfam_code):
     # Nos dirigimos a la carpeta donde se levantará el docker
     os.chdir(PATH + '/Scripts')
     # Se ejecuta hmmer

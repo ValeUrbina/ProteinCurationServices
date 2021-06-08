@@ -10,10 +10,9 @@ from email.mime.multipart import MIMEMultipart
 
 sender_email = "proteincurationapp@gmail.com"
 password = "tesis2proteincurationapppassword"
-PATH = '/home/valeria/Documentos/Tesis_2/Docker/pfam_curation/'
 
 
-def main(operation_id, receiver_mail, filepath, pfam_code):
+def main(PATH, operation_id, receiver_mail, filepath, pfam_code):
 
     receiver_email = receiver_mail
 

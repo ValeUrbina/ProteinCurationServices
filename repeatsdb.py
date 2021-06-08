@@ -4,8 +4,6 @@ import os
 # return the units, sequences and pdbs
 # this file should be located in the directory specified by pfam_curation_tools docker
 
-PATH = '/home/valeria/Documentos/Tesis_2/Docker/pfam_curation/'
-
 
 def filter_units(units_array):
     units_array = units_array.split()
@@ -15,7 +13,7 @@ def filter_units(units_array):
         return False
 
 
-def main(directory, pfam_code, pdb_id):
+def main(PATH, directory, pfam_code, pdb_id):
     # Nos dirigimos a la carpeta donde se encuentra el archivo
     path_pdb = 'repeatsdb/PF03377-DBFILES/' + pdb_id + '.db'
     path_units = 'repeatsdb/PF03377-PDBS.txt'
