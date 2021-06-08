@@ -1,5 +1,6 @@
 import sys
 import os
+import codecs
 
 # find the missing sequences
 # this file should be located in the directory specified by pfam_curation_tools docker
@@ -19,8 +20,28 @@ def main(directory, pfam_code):
         PATH, 'pfam_data', directory, pfam_code, 'missing')
     found_path = os.path.join(
         PATH, 'pfam_data', directory, pfam_code, 'found')
+
+    missing_file = "There's no such missing file"
+    found_file = "There's no such found file"
+
+    if os.path.exists(missing_path):
+        # Get the data from the file
+        with open(missing_path, 'rb') as fp:
+            missing_file = fp.read()
+
+        # The data is base64 encoded. Let's decode it.
+        missing_file = codecs.decode(missing_file, 'base64')
+
+    if os.path.exists(found_path):
+        # Get the data from the file
+        with open(found_path, 'rb') as fp:
+            found_file = fp.read()
+
+        # The data is base64 encoded. Let's decode it.
+        found_file = codecs.decode(found_file, 'base64')
+
     # Se retorna la ruta del archivo
-    return {"result": result, "missing_path": missing_path, "found_path": found_path}
+    return {"result": result, "missing_file": missing_file, "found_file": found_file}
 
 
 if __name__ == "__main__":

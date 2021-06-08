@@ -163,16 +163,7 @@ def pfci_service(project_name: str, pf_code: str, options: str, description: str
 @app.get("/missing/")
 def missing_service(project_name: str, pf_code: str):
     result = missing.main(project_name, pf_code)
-    if os.path.exists(result["missing_path"]):
-        missing_file = FileResponse(result["missing_path"])
-    else:
-        missing_file = "There's no such missing file"
-    if os.path.exists(result["found_path"]):
-        found_file = FileResponse(result["found_path"])
-    else:
-        found_file = "There's no such found file"
-
-    return {"result": result["result"], "missing_file": missing_file, "found_file": found_file}
+    return result
 
 
 # Para ejecutar la funcion overlap
