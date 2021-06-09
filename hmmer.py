@@ -8,16 +8,17 @@ import to_fasta
 
 SCRIPT = "./exec_hmmersearch.sh {} {} {} {}"
 
+# file_name = file_name
+# output_filename = hmmALIGN, domtblout.txt
 
-def main(PATH, pfamseq_path, directory, pfam_code):
+
+def main(PATH, pfamseq_path, directory, pfam_code, file_name):
     # Nos dirigimos a la carpeta donde se levantará el docker
     os.chdir(PATH + '/Scripts')
     # Se ejecuta hmmer
     project_path = os.path.join(
         PATH, 'pfam_data', directory, pfam_code)
-    # align_path = os.path.join(PATH, 'pfam_data', directory, pfam_code, 'ALIGN')
-    #hmmprofile_path = os.path.join(PATH, 'pfam_data', directory, pfam_code, 'hmmALIGN')
-    my_cmd = SCRIPT.format(project_path, 'hmmALIGN', 'ALIGN', pfamseq_path)
+    my_cmd = SCRIPT.format(project_path, 'hmmALIGN', file_name, pfamseq_path)
     os.system(my_cmd)
     dom_path = os.path.join(
         PATH, 'pfam_data', directory, pfam_code, 'domtblout.txt')

@@ -5,8 +5,6 @@ from datetime import datetime
 # create a HMM over the existing alignment
 # this file should be located in the directory specified by pfam_curation_tools docker
 
-SCRIPT = "mkdir /home/valeria/Documentos/Tesis_2/Docker/pfam_curation/pfam_data/{}/"
-
 
 def main(PATH, curator_id, project_name, email, pfam_code):
 
