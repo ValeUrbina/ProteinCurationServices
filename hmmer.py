@@ -9,7 +9,7 @@ import to_fasta
 SCRIPT = "./exec_hmmersearch.sh {} {} {} {}"
 
 # file_name = file_name
-# output_filename = hmmALIGN, domtblout.txt
+# outputfile_name = hmmALIGN, domtblout.txt
 
 
 def main(PATH, pfamseq_path, directory, pfam_code, file_name):

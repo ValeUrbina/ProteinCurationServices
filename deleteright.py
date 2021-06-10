@@ -4,7 +4,7 @@ from typing import Sequence
 import to_fasta
 
 # delete multiple sequences
-# input: list of acc numbers, output: new align
+# input: column, output: new align
 # this file should be located in the directory specified by pfam_curation_tools docker
 # file_name = ALIGN
 # outputfile_name = delseqrightALIGN

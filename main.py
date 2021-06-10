@@ -1,7 +1,3 @@
-from fastapi import FastAPI
-from fastapi.responses import FileResponse
-from pydantic import BaseModel
-from spcleaner.alignment_curator import main as spcleaner
 import os
 import to_fasta
 import sendemail
@@ -26,6 +22,10 @@ import repeatsdb
 import hmmer
 import deleteleft
 import deleteright
+from spcleaner.alignment_curator import main as spcleaner
+from fastapi import FastAPI
+from fastapi.responses import FileResponse
+from pydantic import BaseModel
 
 app = FastAPI()
 base = '/home/ubuntu/tesis/pfam_curation/'
@@ -34,30 +34,28 @@ pfamseq_path = '/home/ubuntu/tesis/pfam_curation/seqlib/pfamseq'
 #pfamseq_path = '/home/valeria/Documentos/Tesis_2/Docker/pfam_curation/seqlib/pfamseq'
 
 
-class Protein(BaseModel):
-    pf_code: str
-    dir: str
+class List(BaseModel):
+    acc_numbers_ids: list
 
 
-# Para el undo y redo
-@app.get("/returnfile/")
-def returnfile(project_name: str, pfam_code: str, file_name: str):
-    file_path = os.path.join(
-        base, 'pfam_data', project_name, pfam_code, file_name)
-    if os.path.exists(file_path):
-        return FileResponse(file_path)
+# Para crear un nuevo proyecto
+@app.get("/newproject/")
+def newproject_service(curator_id: str, project_name: str, email: str, pfam_code: str):
+    resault = newproject.main(base, curator_id, project_name, email, pfam_code)
+    if os.path.exists(resault["project_path"]):
+        return resault["directory"]
     else:
-        return {"error": "There's no " + file_name + 'file'}
+        return {"error": "Error in creating the directory"}
 
 
 # Para descargar una familia de proteínas con pfco
-@app.get("/sendemail/")
-def sendemail_service(project_name: str, operation_id: str, receiver_mail: str, pfam_code: str):
-    file_path = os.path.join(
-        base, 'pfam_data', project_name, pfam_code, 'SEED')
-    resault = sendemail.main(
-        base, operation_id, receiver_mail, file_path, pfam_code)
-    return resault
+@app.get("/getalign/")
+def getalign_service(project_name: str, pf_code: str):
+    file_path = pfco.main(base, project_name, pf_code)
+    if os.path.exists(file_path):
+        return FileResponse(file_path)
+    else:
+        return {"error": "There's no such ALIGN.fasta file"}
 
 
 # Para ejecutar la funcion deleteleft
@@ -82,31 +80,11 @@ def deleteright_service(project_name: str, pf_code: str, column: str, file_name:
         return {"error": "There's no such delseqrightALIGN.fasta file"}
 
 
-# Para crear un nuevo proyecto
-@app.get("/newproject/")
-def newproject_service(curator_id: str, project_name: str, email: str, pfam_code: str):
-    resault = newproject.main(base, curator_id, project_name, email, pfam_code)
-    if os.path.exists(resault["project_path"]):
-        return resault["directory"]
-    else:
-        return {"error": "Error in creating the directory"}
-
-
-# Para descargar una familia de proteínas con pfco
-@app.get("/getalign/")
-def getalign_service(project_name: str, pf_code: str):
-    file_path = pfco.main(base, project_name, pf_code)
-    if os.path.exists(file_path):
-        return FileResponse(file_path)
-    else:
-        return {"error": "There's no such ALIGN.fasta file"}
-
-
 # Para ejecutar la funcion deletesequences
 @app.get("/deletesequences/")
-def deletesequences_service(base: str, project_name: str, pf_code: str, accNumbers: list, file_name: str, outputfile_name: str):
+def deletesequences_service(project_name: str, pf_code: str, accnumbids_list: List, file_name: str, outputfile_name: str):
     file_path = deletesequences.main(
-        base, project_name, pf_code, accNumbers, file_name, outputfile_name)
+        base, project_name, pf_code, accnumbids_list.acc_numbers_ids, file_name, outputfile_name)
     if os.path.exists(file_path):
         return FileResponse(file_path)
     else:
@@ -115,7 +93,7 @@ def deletesequences_service(base: str, project_name: str, pf_code: str, accNumbe
 
 # Para ejecutar la funcion deletefragments
 @app.get("/deletefragments/")
-def deletefragments_service(base: str, project_name: str, pf_code: str, file_name: str, outputfile_name: str):
+def deletefragments_service(project_name: str, pf_code: str, file_name: str, outputfile_name: str):
     file_path = deletefragments.main(
         base, project_name, pf_code, file_name, outputfile_name)
     if os.path.exists(file_path):
@@ -294,3 +272,24 @@ def hmmer_service(project_name: str, pf_code: str, file_name: str):
         return FileResponse(file_path)
     else:
         return {"error": "There's no such domtblout.txt file"}
+
+
+# Para el retornar cualquier archivo
+@app.get("/returnfile/")
+def returnfile(project_name: str, pfam_code: str, file_name: str):
+    file_path = os.path.join(
+        base, 'pfam_data', project_name, pfam_code, file_name)
+    if os.path.exists(file_path):
+        return FileResponse(file_path)
+    else:
+        return {"error": "There's no " + file_name + 'file'}
+
+
+# Para enviar un email
+@app.get("/sendemail/")
+def sendemail_service(project_name: str, operation_id: str, receiver_mail: str, pfam_code: str):
+    file_path = os.path.join(
+        base, 'pfam_data', project_name, pfam_code, 'SEED')
+    resault = sendemail.main(
+        base, operation_id, receiver_mail, file_path, pfam_code)
+    return resault
