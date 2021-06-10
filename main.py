@@ -288,8 +288,6 @@ def returnfile(project_name: str, pfam_code: str, file_name: str):
 # Para enviar un email
 @app.get("/sendemail/")
 def sendemail_service(project_name: str, operation_id: str, receiver_mail: str, pfam_code: str):
-    file_path = os.path.join(
-        base, 'pfam_data', project_name, pfam_code, 'SEED')
     resault = sendemail.main(
-        base, operation_id, receiver_mail, file_path, pfam_code)
+        base, operation_id, receiver_mail, project_name, pfam_code)
     return resault
