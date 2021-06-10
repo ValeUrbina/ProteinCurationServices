@@ -29,8 +29,9 @@ def main(PATH, operation_id, receiver_mail, filepath, pfam_code):
     html = """\
     <html>
     <body>
-        <p>Hi,
-        <br>Here's your Operation ID:<br>
+        <p>Dear curator,
+        <br>Here's your Operation ID: """ + operation_id + """<br>
+        <br>Don't forget to enter the code to resume work<br>
         </p>
     </body>
     </html>
@@ -61,7 +62,7 @@ def main(PATH, operation_id, receiver_mail, filepath, pfam_code):
     # Add header as key/value pair to attachment part
     part.add_header(
         "Content-Disposition",
-        f"attachment; filename= {filename}",
+        f"attachment; filename= {pfam_code + '-SEED'}",
     )
 
     # Add attachment to message and convert message to string
