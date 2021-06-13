@@ -5,7 +5,7 @@ import os
 # this file should be located in the directory specified by pfam_curation_tools docker
 
 
-def main(PATH, irectory, pfam_code):
+def main(PATH, directory, pfam_code):
     # Nos dirigimos a la carpeta donde se levantará el docker
     desc_path = os.path.join(
         PATH, 'pfam_data', directory, pfam_code, 'DESC')
