@@ -18,14 +18,19 @@ def main(PATH, pfamseq_path, directory, pfam_code, file_name):
     # Se ejecuta hmmer
     project_path = os.path.join(
         PATH, 'pfam_data', directory, pfam_code)
-    my_cmd = SCRIPT.format(project_path, 'hmmALIGN', file_name, pfamseq_path)
+    target_path = os.path.join(
+        PATH, 'pfam_data', directory, pfam_code, 'hmmALIGN')
+    source_path = os.path.join(
+        PATH, 'pfam_data', directory, pfam_code, file_name)
+    my_cmd = SCRIPT.format(project_path, target_path,
+                           source_path, pfamseq_path)
     os.system(my_cmd)
     dom_path = os.path.join(
         PATH, 'pfam_data', directory, pfam_code, 'domtblout.txt')
     # Se retorna la ruta del archivo
     if os.path.exists(dom_path):
         return dom_path
-    return {"error": "There's no such domtblout.txt file"}
+    return "There's no such domtblout.txt file"
 
 
 # Execution: python3 pfam_download.py pfam_code
