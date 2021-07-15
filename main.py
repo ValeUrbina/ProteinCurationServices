@@ -60,7 +60,7 @@ def getalign_service(project_name: str, pf_code: str):
 
 # Para ejecutar la funcion deleteleft
 @app.get("/deleteleft/")
-def deleteleft_service(project_name: str, pf_code: str, column: str, file_name: str, outputfile_name: str):
+def deleteleft_service(project_name: str, pf_code: str, column: int, file_name: str, outputfile_name: str):
     file_path = deleteleft.main(
         base, project_name, pf_code, column, file_name, outputfile_name)
     if os.path.exists(file_path):
@@ -71,7 +71,7 @@ def deleteleft_service(project_name: str, pf_code: str, column: str, file_name: 
 
 # Para ejecutar la funcion deleteright
 @app.get("/deleteright/")
-def deleteright_service(project_name: str, pf_code: str, column: str, file_name: str, outputfile_name: str):
+def deleteright_service(project_name: str, pf_code: str, column: int, file_name: str, outputfile_name: str):
     file_path = deleteright.main(
         base, project_name, pf_code, column, file_name, outputfile_name)
     if os.path.exists(file_path):

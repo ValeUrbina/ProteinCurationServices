@@ -7,7 +7,8 @@ import to_fasta
 # this file should be located in the directory specified by pfam_curation_tools docker
 
 SCRIPT1 = "hmmbuild {} {}"
-SCRIPT2 = "hmmsearch --tblout tblout.txt --domtblout domtblout.txt --pfamtblout pfamtblout.txt hmmALIGN {}"
+SCRIPT2 = "hmmsearch --domtblout domtblout.txt hmmALIGN {}"
+#SCRIPT2 = "hmmsearch --tblout tblout.txt --domtblout domtblout.txt --pfamtblout pfamtblout.txt hmmALIGN {}"
 
 # file_name = file_name
 # outputfile_name = hmmALIGN, domtblout.txt
