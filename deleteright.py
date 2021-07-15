@@ -23,7 +23,7 @@ def main(PATH, directory, pfam_code, column, file_name, outputfile_name):
         simple_seq = sequence.split()
         index = sequence.find(simple_seq[1])
         output_file.write(sequence[:index])
-        output_file.write(sequence[:(index+column)])
+        output_file.write(sequence[index:(index+column)])
 
     input_file.close()
     output_file.close()
